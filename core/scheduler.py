@@ -71,10 +71,23 @@ def _get_solver(time_limit: int):
     install with `pulp[cbc]` to get the new COIN_CMD path. Wrapping both
     here means version drift is contained to ONE function.
     """
-    try:
+    import pulp
+    import os
+
+    pulp_dir = os.path.dirname(pulp.__file__)
+    cbc_path = None
+
+    for root, dirs, files in os.walk(pulp_dir):
+        if "cbc.exe" in files:
+            cbc_path = os.path.join(root, "cbc.exe")
+            break
+        
+    if cbc_path:
+        return pulp.COIN_CMD(msg=0, timeLimit=time_limit, path= cbc_path ) 
+    else:
         return pulp.COIN_CMD(msg=0, timeLimit=time_limit)
-    except (pulp.PulpSolverError, AttributeError):
-        return pulp.PULP_CBC_CMD(msg=0, timeLimit=time_limit)
+
+        
 
 
 def solve_schedule(
