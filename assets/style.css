@@ -1,0 +1,12 @@
+/* AXA-ish polish */
+.stApp { font-family: "Source Sans Pro", sans-serif; }
+section[data-testid="stSidebar"] {
+    background-color: #f4f6fb;
+    border-right: 1px solid #e2e6ee;
+}
+h1, h2, h3 { color: #1f3b8c; }
+[data-testid="stMetricValue"] { color: #1f3b8c; font-weight: 600; }
+button[kind="primary"] {
+    background-color: #1f3b8c !important;
+    border-color: #1f3b8c !important;
+}

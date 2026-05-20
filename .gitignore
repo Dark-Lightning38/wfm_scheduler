@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Streamlit secrets — NEVER commit
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+# Data & artefacts
+data/*.xlsx
+data/audit.log
+data/agents_db.json
+!data/.gitkeep
+!data/sample_need.xlsx
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Notebooks
+.ipynb_checkpoints/
